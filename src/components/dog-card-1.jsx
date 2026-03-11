@@ -5,11 +5,15 @@ export default function DogCard() {
 
   // Step 1: Create a function called handleAdopt that shows an alert
   // saying "You adopted a dog! 🐾"
-
+function handleAdopt() {
+  alert("You adopted a dog! 🐾");
+}
 
   // Step 2: Create a function called handleLearnMore that logs
   // "Showing more info..." to the console
-
+function handleLearnMore() {
+  console.log("Showing more info...");
+}
 
   return (
     <div style={cardStyle}>
@@ -17,13 +21,17 @@ export default function DogCard() {
       <p style={{ color: "#666" }}>Golden Retriever · 2 years old</p>
 
       {/* Step 3: Wire handleAdopt to the Adopt button's onClick */}
-      <button onClick={null} style={{ ...btnStyle, backgroundColor: "#4a90d9" }}>
+      <button onClick={handleAdopt} style={{ ...btnStyle, backgroundColor: "#4a90d9" }}>
         Adopt
       </button>
 
       {/* Step 4: Wire handleLearnMore using an inline arrow function */}
-      <button onClick={null} style={{ ...btnStyle, backgroundColor: "#888" }}>
+      <button onClick={handleLearnMore} style={{ ...btnStyle, backgroundColor: "#888" }}>
         Learn More
+      </button>
+      {/* Step 4: Another way of caling the same thing instead of writing separate function*/}
+      <button onClick={()=>{alert("You can call me this way too !")}} style={{ ...btnStyle, backgroundColor: "#888" }}>
+        Another way
       </button>
     </div>
   );

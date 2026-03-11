@@ -8,18 +8,23 @@ import { dogs } from '../data/dogs.js';
 export default function DogGalleryState() {
 
   // Step 2: Declare a state variable called index, starting at 0
+  const[index, setIndex] = useState(0);
 
 
   // Step 3: Write a handleNext function that increases index by 1
   // Hint: use % dogs.length so it wraps back to 0 at the end
-
+  function handleNext(){
+    setIndex((index+1)%dogs.length);
+  }
 
   // Step 4: Write a handlePrev function that decreases index by 1
   // Hint: use + dogs.length so it wraps around without going negative
-
+function handlePrev(){
+  setIndex(((index-1)+dogs.length)%dogs.length)
+}
 
   // Step 5: Use index to get the current dog from the array
-  const dog = dogs[0];// your code here
+  const dog = dogs[index];// your code here
 
   return (
     <div style={{ maxWidth: "400px", margin: "40px auto", fontFamily: "sans-serif", textAlign: "center" }}>
@@ -42,8 +47,8 @@ export default function DogGalleryState() {
 
       {/* Step 7: Wire up the buttons to your handler functions */}
       <div style={{ display: "flex", gap: "12px", justifyContent: "center", marginTop: "16px" }}>
-        <button onClick={null} style={btnStyle}>← Prev</button>
-        <button onClick={null} style={btnStyle}>Next →</button>
+        <button onClick={handlePrev} style={btnStyle}>← Prev</button>
+        <button onClick={handleNext} style={btnStyle}>Next →</button>
       </div>
     </div>
   );

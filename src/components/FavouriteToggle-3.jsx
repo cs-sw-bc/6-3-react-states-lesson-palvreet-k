@@ -11,9 +11,9 @@ export default function SnapshotDemo() {
       <h2>Treats Given: {count}</h2>
       <button
         onClick={() => {
-          setCount(count + 1);
-          setCount(count + 1);
-          setCount(count + 1);
+          setCount(count => count + 1); //Use fat-arrow to queue updates
+          setCount(count => count + 1);
+          setCount(count => count + 1);
         }}
         style={btnStyle}
       >

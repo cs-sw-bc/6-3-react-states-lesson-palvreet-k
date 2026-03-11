@@ -11,20 +11,25 @@ import { useState } from "react";
 export default function AdoptionForm() {
 
   // Step 1: Create a state variable for the applicant's name (start as empty string)
-
+  const[name, setName] = useState("");
 
   // Step 2: Create a state variable for the applicant's email (start as empty string)
-
+  const[email, setEmail] = useState("");
 
   // Step 3: Create a state variable for submitted (start as false)
-
+  const[isSubmitted, setSubmitted] = useState(false);
 
   // Step 4: Write a handleSubmit function that sets submitted to true
-
+  function handleSubmit(){
+    setSubmitted(true);
+  }
 
   // Step 5: If submitted is true, show a success message instead of the form
   // "Thank you, {name}! We'll be in touch at {email} 🐾"
-
+  if(isSubmitted){
+    //early return
+    return(<><h1>Thank you, {name}! We'll be in touch at {email} 🐾</h1></>)
+  }
 
   return (
     <div style={{ maxWidth: "480px", margin: "40px auto", fontFamily: "sans-serif" }}>
@@ -56,8 +61,8 @@ export default function AdoptionForm() {
         {/* Step 8: Disable the submit button when name or email is empty */}
         {/* Wire onClick to handleSubmit */}
         <button
-          onClick={null}
-          disabled={null}
+          onClick={handleSubmit}
+          disabled={false}
           style={{
             ...btnStyle,
             backgroundColor: (name === "" || email === "") ? "#ccc" : "#4a90d9",
